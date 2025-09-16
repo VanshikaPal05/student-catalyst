@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Academic-focused color palette */
+    /* Purple, Blue, Orange color palette */
     --background: 0 0% 99%;
     --foreground: 215 25% 15%;
 
@@ -18,18 +18,18 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    /* Education-themed blues and teals */
-    --primary: 207 89% 42%;  /* Professional blue */
+    /* Purple, Blue, Orange theme */
+    --primary: 259 94% 51%;  /* Vibrant purple */
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 207 89% 65%;
+    --primary-glow: 259 94% 70%;
 
-    --secondary: 200 18% 46%;
+    --secondary: 217 91% 60%;  /* Bright blue */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 25% 97%;
+    --muted: 259 20% 97%;
     --muted-foreground: 215 12% 45%;
 
-    --accent: 173 58% 39%;  /* Academic teal */
+    --accent: 25 95% 53%;  /* Vibrant orange */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -40,18 +40,25 @@ All colors MUST be HSL.
     --ring: 207 89% 42%;
 
     /* Custom design tokens for student portal */
-    --achievement-bg: 207 100% 97%;
-    --achievement-border: 207 50% 85%;
+    --achievement-bg: 259 100% 97%;
+    --achievement-border: 259 50% 85%;
     --success: 142 71% 45%;
     --success-foreground: 0 0% 100%;
+    --warning: 25 95% 53%;
+    --warning-foreground: 0 0% 100%;
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
     
-    /* Gradients for visual appeal */
-    --gradient-primary: linear-gradient(135deg, hsl(207 89% 42%), hsl(173 58% 39%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 25% 98%));
+    /* Purple, Blue, Orange gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(259 94% 51%), hsl(217 91% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(217 91% 60%), hsl(25 95% 53%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(259 20% 98%));
     
-    /* Shadows for depth */
-    --shadow-card: 0 4px 6px -1px hsl(207 89% 42% / 0.1), 0 2px 4px -2px hsl(207 89% 42% / 0.1);
-    --shadow-achievement: 0 8px 25px -8px hsl(207 89% 42% / 0.15);
+    /* Colorful shadows */
+    --shadow-card: 0 4px 6px -1px hsl(259 94% 51% / 0.1), 0 2px 4px -2px hsl(259 94% 51% / 0.1);
+    --shadow-achievement: 0 8px 25px -8px hsl(259 94% 51% / 0.15);
+    --shadow-orange: 0 8px 25px -8px hsl(25 95% 53% / 0.15);
+    --shadow-blue: 0 8px 25px -8px hsl(217 91% 60% / 0.15);
 
     --radius: 0.5rem;
 

@@ -25,10 +25,13 @@ export const AddAchievementForm = ({ onSubmit, onCancel }: AddAchievementFormPro
   });
 
   const categories = [
-    { value: "conference", label: "Conference Paper" },
-    { value: "certificate", label: "Certificate" },
-    { value: "project", label: "Project" },
-    { value: "award", label: "Award" }
+    { value: "conference", label: "Conferences & Workshops" },
+    { value: "certification", label: "Certifications" },
+    { value: "club", label: "Club Activities & Volunteering" },
+    { value: "competition", label: "Competitions & Contests" },
+    { value: "leadership", label: "Leadership & Internships" },
+    { value: "community", label: "Community Services" },
+    { value: "internship", label: "Internships" }
   ];
 
   const handleSubmit = (e: React.FormEvent) => {

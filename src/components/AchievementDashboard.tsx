@@ -5,16 +5,20 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import { AchievementCard, Achievement } from "./AchievementCard";
 import { AddAchievementForm } from "./AddAchievementForm";
-import { Plus, Search, Trophy, FileText, Award, ExternalLink } from "lucide-react";
+import { UpcomingEvents } from "./UpcomingEvents";
+import { AchievementAnalytics } from "./AchievementAnalytics";
+import { Plus, Search, Trophy, FileText, Award, ExternalLink, Users, Briefcase, Heart, Calendar, TrendingUp, BarChart3 } from "lucide-react";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
 
 export const AchievementDashboard = () => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [achievements, setAchievements] = useState<Achievement[]>([
     {
       id: "1",
-      title: "Best Research Paper Award",
-      category: "award",
-      description: "Received best paper award for research on 'AI in Education' at the National Conference on Computer Science",
+      title: "International AI Conference 2024",
+      category: "conference",
+      description: "Presented research paper on 'Machine Learning in Educational Analytics' at the International Conference on AI",
       date: "2024-03-15",
       organization: "IEEE Computer Society",
       proofUrl: "#",
@@ -22,20 +26,49 @@ export const AchievementDashboard = () => {
     },
     {
       id: "2", 
-      title: "React Developer Certification",
-      category: "certificate",
-      description: "Completed advanced React development course with hands-on projects and best practices",
+      title: "AWS Cloud Practitioner Certification",
+      category: "certification",
+      description: "Achieved AWS Cloud Practitioner certification demonstrating foundational cloud computing knowledge",
       date: "2024-02-20",
-      organization: "Meta",
+      organization: "Amazon Web Services",
       proofUrl: "#",
       status: "approved"
     },
     {
       id: "3",
-      title: "Student Management System",
-      category: "project",
-      description: "Built a full-stack web application for managing student records using React and Node.js",
+      title: "President - Computer Science Club",
+      category: "leadership",
+      description: "Led a team of 50+ members, organized technical workshops and coding competitions throughout the academic year",
       date: "2024-01-10",
+      organization: "College Computer Science Club",
+      status: "approved"
+    },
+    {
+      id: "4",
+      title: "Coding Competition Winner",
+      category: "competition",
+      description: "First place in the Inter-University Coding Championship with algorithm optimization challenge",
+      date: "2024-04-05",
+      organization: "State University",
+      proofUrl: "#",
+      status: "approved"
+    },
+    {
+      id: "5",
+      title: "Community Teaching Volunteer",
+      category: "community",
+      description: "Taught basic computer skills to underprivileged children for 6 months in local community center",
+      date: "2024-01-15",
+      organization: "Local Community Center",
+      status: "approved"
+    },
+    {
+      id: "6",
+      title: "Software Engineering Internship",
+      category: "internship",
+      description: "3-month internship developing full-stack web applications using React and Node.js",
+      date: "2024-06-01",
+      organization: "Tech Solutions Inc",
       status: "pending"
     }
   ]);
@@ -45,10 +78,13 @@ export const AchievementDashboard = () => {
 
   const categories = [
     { value: "all", label: "All Categories", icon: Trophy },
-    { value: "conference", label: "Conference Papers", icon: FileText },
-    { value: "certificate", label: "Certificates", icon: Award },
-    { value: "project", label: "Projects", icon: ExternalLink },
-    { value: "award", label: "Awards", icon: Trophy }
+    { value: "conference", label: "Conferences & Workshops", icon: FileText },
+    { value: "certification", label: "Certifications", icon: Award },
+    { value: "club", label: "Club Activities & Volunteering", icon: Users },
+    { value: "competition", label: "Competitions & Contests", icon: Trophy },
+    { value: "leadership", label: "Leadership & Internships", icon: Briefcase },
+    { value: "community", label: "Community Services", icon: Heart },
+    { value: "internship", label: "Internships", icon: Briefcase }
   ];
 
   const filteredAchievements = achievements.filter(achievement => {
@@ -171,6 +207,16 @@ export const AchievementDashboard = () => {
           })}
         </div>
 
+        {/* Analytics Section */}
+        <div className="mb-8">
+          <AchievementAnalytics achievements={achievements} />
+        </div>
+
+        {/* Upcoming Events Section */}
+        <div className="mb-8">
+          <UpcomingEvents />
+        </div>
+
         {/* Achievements Grid */}
         {filteredAchievements.length === 0 ? (
           <div className="text-center py-12">
@@ -190,13 +236,21 @@ export const AchievementDashboard = () => {
             </Button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredAchievements.map((achievement) => (
-              <AchievementCard 
-                key={achievement.id} 
-                achievement={achievement}
-              />
-            ))}
+          <div className="space-y-6">
+            <div className="flex items-center gap-2">
+              <Trophy className="h-6 w-6 text-primary" />
+              <h2 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                My Achievements
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredAchievements.map((achievement) => (
+                <AchievementCard 
+                  key={achievement.id} 
+                  achievement={achievement}
+                />
+              ))}
+            </div>
           </div>
         )}
       </div>

@@ -6,7 +6,7 @@ import { Calendar, FileText, ExternalLink, Award } from "lucide-react";
 export interface Achievement {
   id: string;
   title: string;
-  category: "conference" | "certificate" | "project" | "award";
+  category: "conference" | "certification" | "club" | "competition" | "leadership" | "community" | "internship";
   description: string;
   date: string;
   proofUrl?: string;
@@ -20,35 +20,53 @@ interface AchievementCardProps {
 
 const categoryConfig = {
   conference: { 
-    label: "Conference Paper", 
+    label: "Conferences & Workshops", 
     icon: FileText, 
-    bgColor: "bg-blue-50",
-    borderColor: "border-blue-200" 
+    bgColor: "bg-primary/10",
+    borderColor: "border-primary/20" 
   },
-  certificate: { 
-    label: "Certificate", 
+  certification: { 
+    label: "Certifications", 
     icon: Award, 
-    bgColor: "bg-green-50",
-    borderColor: "border-green-200" 
+    bgColor: "bg-success/10",
+    borderColor: "border-success/20" 
   },
-  project: { 
-    label: "Project", 
+  club: { 
+    label: "Club Activities", 
     icon: ExternalLink, 
-    bgColor: "bg-purple-50",
-    borderColor: "border-purple-200" 
+    bgColor: "bg-info/10",
+    borderColor: "border-info/20" 
   },
-  award: { 
-    label: "Award", 
+  competition: { 
+    label: "Competitions", 
     icon: Award, 
-    bgColor: "bg-yellow-50",
-    borderColor: "border-yellow-200" 
+    bgColor: "bg-accent/10",
+    borderColor: "border-accent/20" 
   },
+  leadership: {
+    label: "Leadership",
+    icon: Award,
+    bgColor: "bg-warning/10", 
+    borderColor: "border-warning/20"
+  },
+  community: {
+    label: "Community Service",
+    icon: ExternalLink,
+    bgColor: "bg-secondary/10",
+    borderColor: "border-secondary/20"
+  },
+  internship: {
+    label: "Internships",
+    icon: FileText,
+    bgColor: "bg-primary/10",
+    borderColor: "border-primary/20"
+  }
 };
 
 const statusColors = {
-  pending: "bg-yellow-100 text-yellow-800",
-  approved: "bg-green-100 text-green-800", 
-  rejected: "bg-red-100 text-red-800"
+  pending: "bg-warning/20 text-warning",
+  approved: "bg-success/20 text-success", 
+  rejected: "bg-destructive/20 text-destructive"
 };
 
 export const AchievementCard = ({ achievement }: AchievementCardProps) => {
